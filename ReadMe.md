@@ -1,6 +1,15 @@
 Token Replacement CKEditor Plugin
 =================================
 
+IMPORTANT
+---------
+
+This is a fork off of [rael9/token-replacement-ckeditor-plugin](https://github.com/rael9/token-replacement-ckeditor-plugin). 
+
+The main reason for the fork is that this plugin is being used within a Drupal module and I needed to change the regex to work with the `tokenStart` string format I wanted to use which is `[personalization:`. 
+
+Aside from that, everything else except for this message has been left as-is.
+
 Overview
 --------
 

@@ -6,7 +6,7 @@
 'use strict';
 
 function escapeRegExp(string){
-    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	return string.replace(/[.:*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 ( function() {
@@ -25,15 +25,15 @@ function escapeRegExp(string){
 
 			var lang = editor.lang.token;
 			var tokenStart = '${';
-            var tokenEnd = '}';
-            if (typeof editor.config.tokenStart != 'undefined') {
-                tokenStart = editor.config.tokenStart;
-            }
-            if (typeof editor.config.tokenEnd != 'undefined') {
-                tokenEnd = editor.config.tokenEnd;
-            }
-            var tokenStartNum = tokenStart.length;
-            var tokenEndNum = 0 - tokenEnd.length;
+			var tokenEnd = '}';
+			if (typeof editor.config.tokenStart != 'undefined') {
+					tokenStart = editor.config.tokenStart;
+			}
+			if (typeof editor.config.tokenEnd != 'undefined') {
+					tokenEnd = editor.config.tokenEnd;
+			}
+			var tokenStartNum = tokenStart.length;
+			var tokenEndNum = 0 - tokenEnd.length;
 
 			// Register dialog.
 			CKEDITOR.dialog.add( 'token', this.path + 'dialogs/token.js' );
@@ -71,17 +71,19 @@ function escapeRegExp(string){
 
 		afterInit: function( editor ) {
 
-            var tokenStart = '${';
-            var tokenEnd = '}';
-            if (typeof editor.config.tokenStart != 'undefined') {
-                tokenStart = editor.config.tokenStart;
-            }
-            if (typeof editor.config.tokenEnd != 'undefined') {
-                tokenEnd = editor.config.tokenEnd;
-            }
-            var tokenStartRegex = escapeRegExp(tokenStart);
-            var tokenEndRegex = escapeRegExp(tokenEnd);
-			var tokenReplaceRegex = new RegExp(tokenStartRegex + '([^' + tokenStartRegex + tokenEndRegex +'])+' + tokenEndRegex, 'g');
+			var tokenStart = '${';
+			var tokenEnd = '}';
+			if (typeof editor.config.tokenStart != 'undefined') {
+					tokenStart = editor.config.tokenStart;
+			}
+			if (typeof editor.config.tokenEnd != 'undefined') {
+					tokenEnd = editor.config.tokenEnd;
+			}
+
+			var tokenStartRegex = escapeRegExp(tokenStart);
+			var tokenEndRegex = escapeRegExp(tokenEnd);
+
+			var tokenReplaceRegex = new RegExp(tokenStartRegex + '(\\w)+' + tokenEndRegex, 'g');
 
 			editor.dataProcessor.dataFilter.addRules( {
 				text: function( text, node ) {
