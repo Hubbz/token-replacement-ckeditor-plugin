@@ -27,7 +27,7 @@ CKEDITOR.dialog.add( 'token', function( editor ) {
 					{
 						id: "name",
 						type: "select",
-						style: 'width: 300px;',
+						style: 'width: 300px !important;',
 						label: lang.name,
 						'default': '',
 						required: true,

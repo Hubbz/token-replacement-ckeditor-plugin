@@ -1,6 +1,6 @@
 CKEDITOR.plugins.setLang( 'token', 'en', {
-	title: 'Token Insertion',
-	toolbar: 'Token',
-	name: 'Token to Insert',
+	title: 'Personalization Tokens',
+	toolbar: 'Personalization Token',
+	name: 'Select token',
 	pathName: 'token'
 } );

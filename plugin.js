@@ -24,8 +24,8 @@ function escapeRegExp(string){
 		init: function( editor ) {
 
 			var lang = editor.lang.token;
-			var tokenStart = '${';
-			var tokenEnd = '}';
+			var tokenStart = '[personalization:';
+			var tokenEnd = ']';
 			if (typeof editor.config.tokenStart != 'undefined') {
 					tokenStart = editor.config.tokenStart;
 			}
@@ -71,8 +71,8 @@ function escapeRegExp(string){
 
 		afterInit: function( editor ) {
 
-			var tokenStart = '${';
-			var tokenEnd = '}';
+			var tokenStart = '[personalization:';
+			var tokenEnd = ']';
 			if (typeof editor.config.tokenStart != 'undefined') {
 					tokenStart = editor.config.tokenStart;
 			}
